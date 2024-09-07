@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+@tailwind variants;
+
+.component.red {
+  @apply ring-red-400;
+  --bg-color: theme(colors.red.200);
+  --text-color: theme(colors.red.600);
+  --is-droppable-bg-color: theme(colors.red.300);
+  --is-dragging-bg-color: theme(colors.red.100);
+
+  --btn-close-bg: theme(colors.red.400);
+  --btn-close-text: theme(colors.red.700);
+}
+
+.component.blue {
+  @apply ring-blue-400;
+  --bg-color: theme(colors.blue.200);
+  --text-color: theme(colors.blue.600);
+  --is-droppable-bg-color: theme(colors.blue.300);
+  --is-dragging-bg-color: theme(colors.blue.100);
+
+  --btn-close-bg: theme(colors.blue.400);
+  --btn-close-text: theme(colors.blue.700);
+}
+
+.component.orange {
+  @apply ring-orange-400;
+  --bg-color: theme(colors.orange.200);
+  --text-color: theme(colors.orange.600);
+  --is-droppable-bg-color: theme(colors.orange.300);
+  --is-dragging-bg-color: theme(colors.orange.100);
+
+  --btn-close-bg: theme(colors.orange.400);
+  --btn-close-text: theme(colors.orange.700);
+}
+
+.component {
+  @apply relative rounded-xl ring-1 p-4 cursor-grab;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+
+  &[data-is-droppable="true"] {
+    background-color: var(--is-droppable-bg-color);
+  }
+
+  &[data-is-dragging="true"] {
+    background-color: var(--is-dragging-bg-color);
+    cursor: grabbing;
+  }
+
+  & button.close {
+    @apply absolute top-1 right-1 -translate-y-1/2 translate-x-1/2 rounded-full p-1 grid place-items-center 
+    duration-100 backdrop-blur-sm hover:opacity-70;
+    background-color: var(--btn-close-bg);
+    color: var(--btn-close-text);
+  }
+
+  & span.number {
+    @apply absolute top-0 left-5 -translate-y-1/2 -translate-x-1/2 rounded-full p-1 grid place-items-center
+    text-xs size-6 ring-1 ring-inherit;
+    background-color: inherit;
+    color: inherit;
+  }
+}
+
+.input {
+  @apply h-9 w-full ring-1 ring-gray-300 rounded-md
+  outline-none px-2;
+}
